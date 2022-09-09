@@ -1,5 +1,5 @@
 import random
-
+import string
 
 stages = ['''
   +---+
@@ -68,8 +68,9 @@ print(''' _
 from hangman_word_list import word_list
 chosen_word = random.choice(word_list)
 word_length = len(chosen_word)
+letter_list=list(string.ascii_letters)
 lives = 6
-print(f' the solution is {chosen_word}.')
+# print(f' the solution is {chosen_word}.')
 display = []
 for r in range(word_length):
     display += '_'
@@ -79,6 +80,8 @@ while not condition:
     guess = input("Enter a character: ").lower()
     if len(guess)>1:
         print("You cannot enter more than a letter")
+    elif guess not in letter_list:
+        print("Try to enter an alphabet")
     else:
         if guess not in character_list:
             if guess in chosen_word:
