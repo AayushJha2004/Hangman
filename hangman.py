@@ -102,7 +102,8 @@ while not condition:
         character_list += guess
 if '_' not in display:
     print("You win")
+    input()
 elif lives == 0:
     print("You lose")
-
+    input()
 
